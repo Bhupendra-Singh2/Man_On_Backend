@@ -29,3 +29,21 @@ class UserTable(AbstractUser):
 
     def __str__(self):
         return str(self.first_name)
+
+       # def get_user_id(self):
+    #     return self.id + 10000000
+    #     # return self.id+10000000
+    #
+    # def GetUserID(self):
+    #     pass
+
+    # def save(self, *args, **kwargs):
+    #     user=super().save(*args, **kwargs)
+    #     user.user_id = self.get_user_id()
+    #     user.save(*args, **kwargs)
+    #     if self._password is not None:
+    #         password_validation.password_changed(self._password, self)
+    #         self._password = None
+    #
+    #     if self.user_id is not None:
+    #         UserTable.user_id = self.user_id
