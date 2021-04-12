@@ -1,13 +1,7 @@
 import random
-
-from django.contrib.auth import password_validation
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth.models import User
-from django.utils import timezone
 from rest_framework import serializers
-from rest_framework.response import Response
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-
 from user_data.models import UserTable, Otp
 
 
@@ -40,11 +34,7 @@ class ResetPasswordSerializer(serializers.ModelSerializer):
             otp = random.randint(100000, 999999)
             attrs['otp'] = otp
         return attrs
-    #
-    # def update(self, instance, validated_data):
-    #     instance.set_password(validated_data['new_password'])
-    #     instance.save()
-    #     return instance
+
 
 
 class SetNewPasswordSerializer(serializers.ModelSerializer):
