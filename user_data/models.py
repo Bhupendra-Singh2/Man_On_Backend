@@ -1,16 +1,12 @@
-import random
-
-from django.contrib.auth import password_validation
 from django.contrib.auth.models import AbstractUser
-from django.core.validators import RegexValidator, MinValueValidator, MaxValueValidator
+from django.core.validators import RegexValidator
 from django.db import models
-from rest_framework import serializers
-
 from .manager import CustomManager
 
 
 # Create your models here.
 class UserTable(AbstractUser):
+    """User Model for Customized User."""
     username = None
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=100, null=False, blank=False,
