@@ -1,6 +1,11 @@
+import random
+
+from django.contrib.auth import password_validation
 from django.contrib.auth.models import AbstractUser
-from django.core.validators import RegexValidator
+from django.core.validators import RegexValidator, MinValueValidator, MaxValueValidator
 from django.db import models
+from rest_framework import serializers
+
 from .manager import CustomManager
 
 
@@ -25,7 +30,3 @@ class UserTable(AbstractUser):
     def __str__(self):
         return str(self.first_name)
 
-
-class Otp(models.Model):
-    email = models.ForeignKey(UserTable, on_delete=models.CASCADE)
-    otp = models.IntegerField(default=0)
